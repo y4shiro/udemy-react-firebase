@@ -4,8 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography'; import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 function Copyright() {
@@ -68,6 +67,11 @@ export default function SignIn({ setName }) {
             name="name"
             autoFocus
             onChange={e => setString(e.target.value)}
+            onKeyDown={e => {
+              console.log({ key: e.key });
+              setName(e.target.value);
+              if(e.key === 'Enter') e.preventDefault();
+            }}
           />
           <Button
             type="button"
@@ -76,7 +80,7 @@ export default function SignIn({ setName }) {
             color="primary"
             className={classes.submit}
             disabled={disabled}
-            onClick={() => {setName(string);}}
+            onClick={() => setName(string)}
           >
             はじめる
           </Button>

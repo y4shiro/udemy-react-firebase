@@ -149,5 +149,6 @@ tags
 .firebaserc
 firebase.json
 /.firebase
+.firebase-config.js
 
 
